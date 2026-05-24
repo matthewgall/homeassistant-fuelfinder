@@ -1,0 +1,40 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  validate:
+    name: HACS Validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Validate
+        uses: hacs/action@main
+        with:
+          category: integration
+
+  release:
+    name: Create Release
+    needs: validate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Build Release ZIP
+        run: |
+          cd custom_components/fuelfinder && zip -r ../../fuelfinder.zip . -x "*/__pycache__/*" -x "*.pyc"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v3
+        with:
+          files: fuelfinder.zip
+          generate_release_notes: true

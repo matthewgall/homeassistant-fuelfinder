@@ -1,0 +1,45 @@
+{
+  "title": "Fuel Finder",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Fuel Finder",
+        "description": "Configure Fuel Finder to monitor fuel prices near your Home Assistant location.\n\nRadius is measured in {radius_unit} (max {max_radius}).",
+        "data": {
+          "radius": "Search Radius",
+          "update_interval": "Update Interval (seconds)",
+          "price_threshold": "Low Price Threshold (£)",
+          "fuel_type": "Fuel Type"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect to fuelaround.me. Check your internet connection.",
+      "timeout": "Connection timed out. The API may be slow or unreachable.",
+      "cloudflare_blocked": "API blocked by Cloudflare. Try again later or check if the site requires a browser.",
+      "invalid_host": "Invalid response from fuelaround.me.",
+      "invalid_api_data": "Unexpected data format from fuelaround.me. The API may have changed.",
+      "unknown": "Unexpected error occurred. Check the logs.",
+      "invalid_radius": "Radius must be a whole number.",
+      "radius_too_small": "Radius must be at least 1.",
+      "radius_too_large": "Radius is too large (max {max_radius})."
+    },
+    "abort": {
+      "already_configured": "Fuel Finder is already configured for this location."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Fuel Finder Options",
+        "description": "Update your Fuel Finder settings.\n\nRadius is measured in {radius_unit} (max {max_radius}).",
+        "data": {
+          "radius": "Search Radius",
+          "update_interval": "Update Interval (seconds)",
+          "price_threshold": "Low Price Threshold (£)",
+          "fuel_type": "Fuel Type"
+        }
+      }
+    }
+  }
+}
