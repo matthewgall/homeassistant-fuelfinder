@@ -161,8 +161,6 @@ content: >
 ## Notes
 
 - fuelaround.me primarily covers **UK fuel stations**. If your Home Assistant is located outside the UK, you may see limited or no results.
-- The API is reverse-engineered from the fuelaround.me website and may change. The integration handles API errors gracefully and will log warnings if the format changes.
-- Cloudflare protection on the site may occasionally block requests. The integration will retry automatically.
 
 ## License
 
