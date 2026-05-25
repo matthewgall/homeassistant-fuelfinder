@@ -3,6 +3,8 @@ name: Validate with HACS
 on:
   push:
   pull_request:
+  schedule:
+    - cron: "0 0 * * *"
 
 jobs:
   hacs:
@@ -12,7 +14,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Validate
+      - name: Validate using hacs/action
         uses: hacs/action@main
         with:
           category: integration
+
+      - name: Validate using hassfest
+        uses: home-assistant/actions/hassfest@master
